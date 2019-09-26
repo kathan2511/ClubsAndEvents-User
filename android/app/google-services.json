@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "892990741115",
+    "firebase_url": "https://clubsandevents-686b9.firebaseio.com",
+    "project_id": "clubsandevents-686b9",
+    "storage_bucket": "clubsandevents-686b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892990741115:android:65fea83d28ae3f45",
+        "android_client_info": {
+          "package_name": "com.example.meals_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892990741115-6gfpclkb36jcu38pls4m328hgqvadf4i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0CNL1HZEWe29b76szh3VDT_AoTzUTwsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892990741115-6gfpclkb36jcu38pls4m328hgqvadf4i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
