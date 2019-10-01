@@ -118,7 +118,7 @@ class EventDetailScreen extends StatelessWidget {
         ),
       );
     }
-    
+
     Container _detailText(String label) {
       return Container(
         alignment: Alignment.centerLeft,
@@ -168,7 +168,7 @@ class EventDetailScreen extends StatelessWidget {
                         documentSnapshot['desc']),
                     _textSection(documentSnapshot['title']),
                     _detailText("Venue : " + documentSnapshot['venue']),
-                     _detailText("Club : " + documentSnapshot['clubname']),
+                    _detailText("Club : " + documentSnapshot['clubname']),
                     _detailText("Date : " +
                         DateFormat("dd-MMMM-yyyy")
                             .format(documentSnapshot['date'].toDate())),
@@ -210,6 +210,11 @@ class EventDetailScreen extends StatelessWidget {
             ],
           ),
           title: Text(screenArguments.eventName),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Text('Register'),
+          backgroundColor: Colors.blue,
+          onPressed: () {},
         ),
         body: TabBarView(
           children: [
