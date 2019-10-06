@@ -34,7 +34,7 @@ class MainDrawer extends StatelessWidget {
             alignment: Alignment.bottomLeft,
             color: Theme.of(context).primaryColor,
             child: Text(
-              userid,
+              'Clubs And Events',
               style: TextStyle(
                 //backgroundColor: Theme.of(context).primaryColor,
                 fontSize: 24,

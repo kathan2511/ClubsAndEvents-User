@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meals_app/models/screen_arguments.dart';
-import 'add_event_screen.dart';
 import 'package:intl/intl.dart';
 
 class EventDetailScreen extends StatelessWidget {
@@ -11,74 +10,6 @@ class EventDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ScreenArguments screenArguments =
         ModalRoute.of(context).settings.arguments;
-    // Card _list(DocumentSnapshot document, String date) {
-    //   return Card(
-    //     elevation: 3,
-    //     child: Row(
-    //       crossAxisAlignment: CrossAxisAlignment.start,
-    //       children: <Widget>[
-    //         Container(
-    //           padding: const EdgeInsets.all(8),
-    //           child: Image.asset(
-    //             'lib/images/lake.jpg',
-    //             width: 65,
-    //             height: 65,
-    //             fit: BoxFit.cover,
-    //           ),
-    //         ),
-    //         Expanded(
-    //           child: Column(children: <Widget>[
-    //             Container(
-    //               alignment: Alignment.centerLeft,
-    //               padding: const EdgeInsets.only(top: 25, left: 10),
-    //               child: Text(
-    //                 document['eventName'],
-    //                 style: TextStyle(
-    //                   fontSize: 20,
-    //                 ),
-    //               ),
-    //             ),
-    //             Container(
-    //               alignment: Alignment.center,
-    //               padding: const EdgeInsets.only(left: 10, top: 5),
-    //               child: Text(date),
-    //             ),
-    //           ]),
-    //         ),
-    //       ],
-    //     ),
-    //   );
-    // }
-
-    // final List<String> entries = <String>["web", "app", "flutter","dark_web","react"];
-    // final List<String> date = <String>[
-    //   "21 May, 2019",
-    //   "21 May, 2019",
-    //   "21 May, 2019",
-    //   "21 May, 2019",
-    //   "21 May, 2019",
-    //   "21 May, 2019",
-    // ];
-    // Widget list = StreamBuilder(
-    //     stream: Firestore.instance.collection('Events').snapshots(),
-    //     builder: (context, snapshot) {
-    //       if (!snapshot.hasData) return const Text("Loading....");
-    //       return ListView.builder(
-    //         itemCount: snapshot.data.documents.length,
-    //         itemBuilder: (BuildContext context, int index) {
-    //           return _list(snapshot.data.documents[index], date[index]);
-    //         },
-    //       );
-    //     }
-
-    //     // ListView.builder(
-    //   itemCount: entries.length,
-    //   itemBuilder: (BuildContext context, int index){
-    //     return _list(entries[index],date[index]);
-    //   },
-    // )
-    // );
-
     Container _titleSection(String title, String title2) {
       return Container(
         padding:
@@ -145,11 +76,11 @@ class EventDetailScreen extends StatelessWidget {
       return Stack(
         children: <Widget>[
           Container(
-            child: Image.asset(
-              'lib/images/lake.jpg',
+            child: Image.network(
+              documentSnapshot['imageUrl'],
               width: 640,
               height: 255,
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
           Container(
@@ -199,16 +130,8 @@ class EventDetailScreen extends StatelessWidget {
       );
     }
 
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
+    return  Scaffold(
         appBar: AppBar(
-          bottom: TabBar(
-            tabs: [
-              Tab(icon: Icon(Icons.home)),
-              Tab(icon: Icon(Icons.add)),
-            ],
-          ),
           title: Text(screenArguments.eventName),
         ),
         floatingActionButton: FloatingActionButton(
@@ -216,13 +139,7 @@ class EventDetailScreen extends StatelessWidget {
           backgroundColor: Colors.blue,
           onPressed: () {},
         ),
-        body: TabBarView(
-          children: [
-            _stream(),
-            MyCustomForm(),
-          ],
-        ),
-      ),
+        body: _stream(),
     );
   }
 }

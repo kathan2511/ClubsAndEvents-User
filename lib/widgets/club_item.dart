@@ -12,6 +12,7 @@ class ClubItem extends StatelessWidget {
   final String venue;
   final String id;
   final Timestamp time;
+  final bool participated;
 
   ClubItem({
     @required this.title,
@@ -21,16 +22,17 @@ class ClubItem extends StatelessWidget {
     @required this.venue,
     @required this.id,
     @required this.time,
+    this.participated = false,
   });
 
-  void selectMeal(BuildContext context) {
+  void selectEvent(BuildContext context) {
     Navigator.of(context).pushNamed(EventDetailScreen.routeName, arguments: ScreenArguments(eventName: title,id: id));
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => selectMeal(context),
+      onTap: () => selectEvent(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -50,7 +52,7 @@ class ClubItem extends StatelessWidget {
                     imageUrl.toString(),
                     height: 200,
                     width: double.infinity,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fitWidth,
                   ),
                 ),
                 Positioned(

@@ -13,14 +13,14 @@ class _ClubsScreenState extends State<ClubsScreen> {
     return StreamBuilder(
       stream: Firestore.instance.collection('Clubs').snapshots(),
       builder: (context, snapshot) {
-        if (!snapshot.hasData) return const Text('Loading...');
+        if (!snapshot.hasData) return Center(child: CircularProgressIndicator(),);
         return ListView.builder(
           padding: EdgeInsets.all(30),
           addRepaintBoundaries: true,
           itemCount: snapshot.data.documents.length,
           itemExtent: 80.0,
           itemBuilder: (context, index) => CategoryItem(
-            id: snapshot.data.documents[index]['documentID'],
+            id: snapshot.data.documents[index].documentID,
             title: snapshot.data.documents[index]['title'],
             departmemt: snapshot.data.documents[index]['department'],
           ),
